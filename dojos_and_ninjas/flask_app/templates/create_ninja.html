@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Ninja Form</title>
+</head>
+<body>
+    <a href="/ninjas">See all ninjas</a>
+    <form action="/create" method="post" class="p-3 col-4 mx-auto my-5 bg-dark text-light">
+        <h2 class="text-center text-primary">Create ninja:</h2>
+    
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="bun" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="age">age:</label>
+            <input type="text" name="age" id="meat" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="dojo_id">dojo_id:</label>
+            <select name="dojo_id" >
+                {% for dojo in all_dojos %}
+                <option value={{dojo.id}}>{{dojo.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="sign up" class="btn btn-primary btn-outline-dark">
+    </form>
+</body>
+</html>

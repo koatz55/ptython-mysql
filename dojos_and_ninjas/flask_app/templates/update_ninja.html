@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="/update/{{ninja['id']}}" method="post" class="p-3 col-4 mx-auto my-5 bg-secondary text-light">
+        <h1 class="text-center text-primary">Update Ninja profile:</h1>
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="name" class="form-control" value="{{ninja['first_name']}}">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="bun" class="form-control" value="{{ninja['last_name']}}">
+        </div>
+        <div class="form-group">
+            <label for="age">age:</label>
+            <input type="text" name="age" id="meat" class="form-control" value="{{ninja['age']}}">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="dojo" value="{{ninja['dojo_id']}}">former dojo</input>
+            <select name="dojo_id" for="dojo_id">
+                {% for dojo in all_dojos %}
+                <option for="dojo_id" name="dojo_id"  value={{dojo.id}}>{{dojo.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Update ninja" class="btn btn-primary btn-outline-dark">
+    </form>
+</body>
+</html>

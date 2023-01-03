@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form action="/update_dojo/{{dojo.id}}" method="post" class="forem p-3 col-4 mx-lg-5 my-5 bg-secondary text-light">
+                <h1 class="text-center text-primary">Create Dojo</h1>
+                <div class="flot-left">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="{{dojo.name}}">
+                </div>
+                <input type="submit" value="update dojo" class="btn btn-primary btn-outline-dark">
+            </form>
+            <div class="card p-3 col-4 mx-lg-3 my-5 bg-secondary text-light">
+                <h2 class="text-center text-primary ">Dojo list</h2>
+                {% for dojo in all_dojos %}
+                <p value={{dojo.id}}>
+                    <a href="/dojo/{{dojo.id}}" target="_blank" class="text-light">{{dojo.name}}</a>
+                    <a href="/delete/dojo/{{dojo.id}}" target="_blank" class="text-light">delete</a>
+                </p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="btn-group-sm mx-lg-5">
+            <a href="/newNinja" class="btn btn-secondary" role="button" >Become a ninja!</a>
+        </div>
+    </div>
+</body>
+</html>
