@@ -1,0 +1,16 @@
+
+body {
+    background-image: url("/static/onepiece.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed ;
+    background-size: cover;
+}
+.form{
+    margin: 30px 20px;
+    font-size: xx-large;
+}
+.border{
+    width: max-content;
+    background-color: aliceblue;
+    padding: 5px;
+}
